@@ -119,7 +119,7 @@ public class jic {
 	 * public native static int p4enc256v32( int[] in, int n, byte[] out);
 	 * public native static int p4dec256v32( byte[] in, int n, int[] out);
 	 */
-	public native static int p4denc32(byte[] in, int n, int[] out, int start);
+	public native static int p4denc32(int[] in, int n, byte[] out, int start);
 
 	public native static int p4ddec32(byte[] in, int n, int[] out, int start);
 
@@ -129,7 +129,7 @@ public class jic {
 	// public native static int p4ddec256v32(byte[] in, int n, int[] out, int
 	// start);
 
-	public native static int p4d1enc32(byte[] in, int n, int[] out, int start);
+	public native static int p4d1enc32(int[] in, int n, byte[] out, int start);
 
 	public native static int p4d1dec32(byte[] in, int n, int[] out, int start);
 
