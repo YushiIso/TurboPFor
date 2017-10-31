@@ -65,13 +65,13 @@ public class jic {
 
 	public native static int p4nddec32(byte[] in, int n, int[] out);
 
-	public native static int p4ndenc128v32(int[] in, int n, byte[] out);
+	// public native static int p4ndenc128v32(int[] in, int n, byte[] out);
 
-	public native static int p4nddec128v32(byte[] in, int n, int[] out);
+	// public native static int p4nddec128v32(byte[] in, int n, int[] out);
 
-	public native static int p4ndenc256v32(int[] in, int n, byte[] out);
+	// public native static int p4ndenc256v32(int[] in, int n, byte[] out);
 
-	public native static int p4nddec256v32(byte[] in, int n, int[] out);
+	// public native static int p4nddec256v32(byte[] in, int n, int[] out);
 
 	public native static int p4nd1enc32(int[] in, int n, byte[] out);
 	// delta
@@ -84,13 +84,13 @@ public class jic {
 
 	public native static int p4nd1dec32(byte[] in, int n, int[] out);
 
-	public native static int p4nd1enc128v32(int[] in, int n, byte[] out);
+	// public native static int p4nd1enc128v32(int[] in, int n, byte[] out);
 
-	public native static int p4nd1dec128v32(byte[] in, int n, int[] out);
+	// public native static int p4nd1dec128v32(byte[] in, int n, int[] out);
 
-	public native static int p4nd1enc256v32(int[] in, int n, byte[] out);
+	// public native static int p4nd1enc256v32(int[] in, int n, byte[] out);
 
-	public native static int p4nd1dec256v32(byte[] in, int n, int[] out);
+	// public native static int p4nd1dec256v32(byte[] in, int n, int[] out);
 
 	public native static int p4nzenc32(int[] in, int n, byte[] out);
 	// zigzag:
@@ -100,13 +100,13 @@ public class jic {
 
 	public native static int p4nzdec32(byte[] in, int n, int[] out);
 
-	public native static int p4nzenc128v32(int[] in, int n, byte[] out);
+	// public native static int p4nzenc128v32(int[] in, int n, byte[] out);
 
-	public native static int p4nzdec128v32(byte[] in, int n, int[] out);
+	// public native static int p4nzdec128v32(byte[] in, int n, int[] out);
 
-	public native static int p4nzenc256v32(int[] in, int n, byte[] out);
+	// public native static int p4nzenc256v32(int[] in, int n, byte[] out);
 
-	public native static int p4nzdec256v32(byte[] in, int n, int[] out);
+	// public native static int p4nzdec256v32(byte[] in, int n, int[] out);
 
 	// Single block: n limited to 128/256
 	public native static int p4enc32(int[] in, int n, byte[] out);
@@ -121,15 +121,19 @@ public class jic {
 	 */
 	public native static int p4ddec32(byte[] in, int n, int[] out, int start);
 
-	public native static int p4ddec128v32(byte[] in, int n, int[] out, int start);
+	// public native static int p4ddec128v32(byte[] in, int n, int[] out, int
+	// start);
 
-	public native static int p4ddec256v32(byte[] in, int n, int[] out, int start);
+	// public native static int p4ddec256v32(byte[] in, int n, int[] out, int
+	// start);
 
 	public native static int p4d1dec32(byte[] in, int n, int[] out, int start);
 
-	public native static int p4d1dec128v32(byte[] in, int n, int[] out, int start);
+	// public native static int p4d1dec128v32(byte[] in, int n, int[] out, int
+	// start);
 
-	public native static int p4d1dec256v32(byte[] in, int n, int[] out, int start);
+	// public native static int p4d1dec256v32(byte[] in, int n, int[] out, int
+	// start);
 
 	// ********** bitpack scalar
 	// High level API

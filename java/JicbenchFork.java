@@ -79,6 +79,7 @@ class JicbenchFork {
 		for (int i = 0; i < bnum; ++i) {
 			b = this.ic.bit32(this.in, 128);
 			this.ic.bitpack32(this.in, 128, this.out, b);
+
 		}
 
 		long t = System.currentTimeMillis() - t0;
@@ -115,7 +116,9 @@ class JicbenchFork {
 		System.out.printf("encode time'" + t + "'    ");
 		t0 = System.currentTimeMillis();
 		s = 0;
+		b = 0;
 		for (int i = 0; i < bnum; ++i) {
+			b = this.ic.bitd32(this.in, 128, s);
 			this.ic.bitdunpack32(this.out, 128, this.cpy, s, b);
 			s += b;
 		}
@@ -138,7 +141,7 @@ class JicbenchFork {
 		long t0 = System.currentTimeMillis();
 		int b = 0, s = 0, bnum = 125000000; // 16 billions integers. 64 GB
 		for (int i = 0; i < bnum; ++i) {
-			b = this.ic.bit32(this.in, 128);
+			b = this.ic.bitd32(this.in, 128, s);
 			this.ic.bitd1pack32(this.in, 128, this.out, s, b);
 			s += b;
 		}
@@ -147,7 +150,9 @@ class JicbenchFork {
 		System.out.printf("encode time'" + t + "'    ");
 		t0 = System.currentTimeMillis();
 		s = 0;
+		b = 0;
 		for (int i = 0; i < bnum; ++i) {
+			b = this.ic.bitd32(this.in, 128, s);
 			this.ic.bitd1unpack32(this.out, 128, this.cpy, s, b);
 			s += b;
 		}
@@ -206,34 +211,6 @@ class JicbenchFork {
 		t0 = System.currentTimeMillis();
 		for (int i = 0; i < bnum; ++i) {
 			this.ic.p4nddec32(this.out, 128, this.cpy);
-		}
-
-		for (int i = 0; i < 128; ++i) {
-			if (this.in[i] != this.cpy[i]) {
-				System.err.println("Error at'" + i + "'");
-				System.exit(1);
-			}
-		}
-		t = System.currentTimeMillis() - t0;
-		System.out.printf("decode time'" + t + "'\n");
-
-		init();
-	}
-
-	void p4ndenc128() {
-		System.out.println("//p4ndenc128のベンチマーク--------");
-
-		long t0 = System.currentTimeMillis();
-		int b = 0, bnum = 125000000; // 16 billions integers. 64 GB
-		for (int i = 0; i < bnum; ++i) {
-			this.ic.p4ndenc32(this.in, 128, this.out);
-		}
-
-		long t = System.currentTimeMillis() - t0;
-		System.out.printf("encode time'" + t + "'    ");
-		t0 = System.currentTimeMillis();
-		for (int i = 0; i < bnum; ++i) {
-			this.ic.p4nddec128v32(this.out, 128, this.cpy);
 		}
 
 		for (int i = 0; i < 128; ++i) {
