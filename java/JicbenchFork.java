@@ -248,6 +248,34 @@ class JicbenchFork {
 		init();
 	}
 
+	void p4enc32() {
+		System.out.println("//p4enc32のベンチマーク--------");
+
+		long t0 = System.currentTimeMillis();
+		int b = 0, bnum = 125000000; // 16 billions integers. 64 GB
+		for (int i = 0; i < bnum; ++i) {
+			this.ic.p4enc32(this.in, 128, this.out);
+		}
+
+		long t = System.currentTimeMillis() - t0;
+		System.out.printf("encode time'" + t + "'    ");
+		t0 = System.currentTimeMillis();
+		for (int i = 0; i < bnum; ++i) {
+			this.ic.p4dec32(this.out, 128, this.cpy);
+		}
+
+		for (int i = 0; i < 128; ++i) {
+			if (this.in[i] != this.cpy[i]) {
+				System.err.println("Error at'" + i + "'");
+				System.exit(1);
+			}
+		}
+		t = System.currentTimeMillis() - t0;
+		System.out.printf("decode time'" + t + "'\n");
+
+		init();
+	}
+
 	public static void main(final String args[]) {
 		int byteNum = 128;
 		if (args.length > 1) {
@@ -256,7 +284,11 @@ class JicbenchFork {
 
 		JicbenchFork bench = new JicbenchFork(byteNum);
 		bench.bitpack32();
+		bench.bitdpack32();
+		bench.bitd1pack32();
 		bench.p4nenc32();
+		bench.p4ndenc32();
+		bench.p4ndenc128();
 
 	}
 
