@@ -49,8 +49,8 @@ size_t p4nenc64(      uint64_t *__restrict in, size_t n, unsigned char *__restri
 size_t p4ndenc8(      uint8_t  *__restrict in, size_t n, unsigned char *__restrict out);
 size_t p4ndenc16(     uint16_t *__restrict in, size_t n, unsigned char *__restrict out);
 size_t p4ndenc32(     uint32_t *__restrict in, size_t n, unsigned char *__restrict out);
-//size_t p4ndenc128v32( uint32_t *__restrict in, size_t n, unsigned char *__restrict out); 
-//size_t p4ndenc256v32( uint32_t *__restrict in, size_t n, unsigned char *__restrict out); 
+size_t p4ndenc128v32( uint32_t *__restrict in, size_t n, unsigned char *__restrict out); 
+size_t p4ndenc256v32( uint32_t *__restrict in, size_t n, unsigned char *__restrict out); 
 size_t p4ndenc64(     uint64_t *__restrict in, size_t n, unsigned char *__restrict out);
 
 size_t p4nd1enc8(     uint8_t  *__restrict in, size_t n, unsigned char *__restrict out);
@@ -155,8 +155,8 @@ unsigned char *p4zenc64(     uint64_t *__restrict in, unsigned n, unsigned char 
 inline unsigned char *_p4enc8(      uint8_t  *__restrict in, unsigned n, unsigned char *__restrict out, unsigned b, unsigned bx);
 inline unsigned char *_p4enc16(     uint16_t *__restrict in, unsigned n, unsigned char *__restrict out, unsigned b, unsigned bx);
 inline unsigned char *_p4enc32(     uint32_t *__restrict in, unsigned n, unsigned char *__restrict out, unsigned b, unsigned bx); 
-inline unsigned char *_p4enc128v32( uint32_t *__restrict in, unsigned n, unsigned char *__restrict out, unsigned b, unsigned bx); // SIMD (Vertical bitpacking)
-inline unsigned char *_p4enc256v32( uint32_t *__restrict in, unsigned n, unsigned char *__restrict out, unsigned b, unsigned bx); 
+//inline unsigned char *_p4enc128v32( uint32_t *__restrict in, unsigned n, unsigned char *__restrict out, unsigned b, unsigned bx); // SIMD (Vertical bitpacking)
+//inline unsigned char *_p4enc256v32( uint32_t *__restrict in, unsigned n, unsigned char *__restrict out, unsigned b, unsigned bx); 
 inline unsigned char *_p4enc64(     uint64_t *__restrict in, unsigned n, unsigned char *__restrict out, unsigned b, unsigned bx);
 // calculate the best bit sizes b and bx, return b. 
 unsigned _p4bits8(           uint8_t  *__restrict in, unsigned n, unsigned *pbx);
@@ -184,14 +184,14 @@ unsigned _p4bitsx64(         uint64_t *__restrict in, unsigned n, unsigned *pbx)
 inline unsigned char *_p4dec8(       unsigned char *__restrict in, unsigned n, uint8_t  *__restrict out, unsigned b, unsigned bx);
 inline unsigned char *_p4dec16(      unsigned char *__restrict in, unsigned n, uint16_t *__restrict out, unsigned b, unsigned bx);
 inline unsigned char *_p4dec32(      unsigned char *__restrict in, unsigned n, uint32_t *__restrict out, unsigned b, unsigned bx);
-inline unsigned char *_p4dec128v32(  unsigned char *__restrict in, unsigned n, uint32_t *__restrict out, unsigned b, unsigned bx); // SIMD (Vertical BitPacking)
+//inline unsigned char *_p4dec128v32(  unsigned char *__restrict in, unsigned n, uint32_t *__restrict out, unsigned b, unsigned bx); // SIMD (Vertical BitPacking)
 inline unsigned char *_p4dec64(      unsigned char *__restrict in, unsigned n, uint64_t *__restrict out, unsigned b, unsigned bx);
 
 unsigned char *p4dec8(        unsigned char *__restrict in, unsigned n, uint8_t  *__restrict out);
 unsigned char *p4dec16(       unsigned char *__restrict in, unsigned n, uint16_t *__restrict out);
 unsigned char *p4dec32(       unsigned char *__restrict in, unsigned n, uint32_t *__restrict out);  
-unsigned char *p4dec128v32(   unsigned char *__restrict in, unsigned n, uint32_t *__restrict out);  // SIMD (Vertical BitPacking)
-unsigned char *p4dec256v32(   unsigned char *__restrict in, unsigned n, uint32_t *__restrict out);  
+//unsigned char *p4dec128v32(   unsigned char *__restrict in, unsigned n, uint32_t *__restrict out);  // SIMD (Vertical BitPacking)
+//unsigned char *p4dec256v32(   unsigned char *__restrict in, unsigned n, uint32_t *__restrict out);  
 unsigned char *p4dec64(       unsigned char *__restrict in, unsigned n, uint64_t *__restrict out);
 //------ Delta decoding --------------------------- Return value = end of packed input buffer in ---------------------------
 //-- Increasing integer lists. out[i] = out[i-1] + in[i]          	   
